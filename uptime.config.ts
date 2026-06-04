@@ -4,8 +4,9 @@ const pageConfig: PageConfig = {
   title: "Gensokyo Radio Status",
   links: [
     { link: 'https://gensokyoradio.net', label: 'Gensokyo Radio' },
-    { link: 'https://gensokyoradio.net/about/', label: 'About' },
   ],
+  // Nuke the default UptimeFlare footer branding
+  customFooter: '',
   // Group monitors into logical sections on the status page
   group: {
     'Website': ['gensokyo_web'],
@@ -22,10 +23,12 @@ const workerConfig: WorkerConfig = {
       name: 'Gensokyo Radio (Website)',
       method: 'GET',
       target: 'https://gensokyoradio.net',
-      tooltip: 'Main website',
+      tooltip: 'Main website checked from Western Europe',
       statusPageLink: 'https://gensokyoradio.net',
       expectedCodes: [200],
       timeout: 10000,
+      checkProxy: 'worker://weur',
+      checkProxyFallback: true,
     },
     // Stream — checked from Western Europe
     {
