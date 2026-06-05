@@ -10,7 +10,7 @@ const pageConfig: PageConfig = {
   // Group monitors into logical sections on the status page
   group: {
     'Website': ['gensokyo_web'],
-    'Stream': ['gensokyo_stream_eu', 'gensokyo_stream_na'],
+    'Stream': ['gensokyo_stream_eu', 'gensokyo_stream_na', 'gensokyo_stream_apac'],
   },
 }
 
@@ -36,7 +36,7 @@ const workerConfig: WorkerConfig = {
       name: 'Stream (Europe)',
       method: 'GET',
       target: 'https://stream.gensokyoradio.net/',
-      tooltip: 'Stream endpoint checked from Western Europe',
+      tooltip: 'Stream endpoint checked from Eastern Europe',
       statusPageLink: 'https://stream.gensokyoradio.net/',
       timeout: 15000,
       responseKeyword: 'Current region: Europe',
@@ -54,6 +54,19 @@ const workerConfig: WorkerConfig = {
       timeout: 15000,
       responseKeyword: 'Current region: Americas',
       checkProxy: 'worker://enam',
+      checkProxyFallback: true,
+    },
+    // Stream — checked from Asia-Pacific (Singapore)
+    {
+      id: 'gensokyo_stream_apac',
+      name: 'Stream (Asia/Oceania)',
+      method: 'GET',
+      target: 'https://stream.gensokyoradio.net/',
+      tooltip: 'Stream endpoint checked from Asia-Pacific',
+      statusPageLink: 'https://stream.gensokyoradio.net/',
+      timeout: 15000,
+      responseKeyword: 'Current region: Asia/Oceania',
+      checkProxy: 'worker://apac',
       checkProxyFallback: true,
     },
   ],
