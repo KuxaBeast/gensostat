@@ -40,7 +40,7 @@ const workerConfig: WorkerConfig = {
       statusPageLink: 'https://stream.gensokyoradio.net/',
       timeout: 15000,
       responseKeyword: 'Current region: Europe',
-      checkProxy: 'worker://weur',
+      checkProxy: 'worker://eeur',
       checkProxyFallback: true,
     },
     // Stream — checked from Eastern North America
